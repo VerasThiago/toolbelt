@@ -16,10 +16,12 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: igordcsouza/github-action-get-branch-name@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - name: Deploy on NPM
         run: |
-          echo "${BRANCH_NAME}"
+          echo "${GITHUB_REF#refs/heads/}"
+          echo "${github.event.pull_request.head.ref}"
+          echo "${github.event}"
+          echo "${github.event.commit.head.ref}"
+          echo "${github.event.push.head.ref}"
+          
 
