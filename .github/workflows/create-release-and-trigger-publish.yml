@@ -25,12 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [create-release]
     steps:
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF##*/})"
+      id: extract_branch
     - name: Trigger NPM publish
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.REPO_GHA_PAT }}
         repository: verasthiago/verascli
         event-type: publish-stable-npm
-        client-payload: '{"ref": "${BRANCH_NAME}"}'
-      env:
-        BRANCH_NAME: "${{GITHUB_REF##*/}}"
+        client-payload: '{"ref": "${{ steps.extract_branch.outputs.branch }}"}'
