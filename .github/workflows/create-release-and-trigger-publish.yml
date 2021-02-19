@@ -31,4 +31,4 @@ jobs:
         token: ${{ secrets.REPO_GHA_PAT }}
         repository: verasthiago/verascli
         event-type: publish-stable-npm
-        client-payload: '{"ref": "${{ github.ref }}"}'
+        client-payload: '{"ref": "${GITHUB_REF##*/}"}'
