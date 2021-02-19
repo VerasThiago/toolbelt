@@ -8,9 +8,14 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  trigger-publish:
+  npm-publish:
     runs-on: ubuntu-latest
-    needs: [create-release]
     steps:
-    - name: Trigger NPM publish
-      run: echo "${GITHUB_REF#refs/heads/}"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Deploy on NPM
+        run: |
+          echo "${GITHUB_REF#refs/heads/}"
