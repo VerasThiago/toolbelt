@@ -15,9 +15,8 @@ jobs:
       - name: Deploy on NPM
         run: |
           echo "${GITHUB_REF#refs/heads/}"
-          echo "${github.event.pull_request.head.ref}"
-          echo "${github.event}"
-          echo "${github.event.commit.head.ref}"
-          echo "${github.event.push.head.ref}"
+          echo "${GITHUB_REF#refs/}"
+          echo "${GITHUB_REF}"
+          
           
 
