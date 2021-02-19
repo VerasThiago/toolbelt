@@ -28,7 +28,7 @@ jobs:
     - name: Trigger NPM publish
       run: |
         curl --location --request POST 'https://api.github.com/repos/verasthiago/verascli/dispatches' \
-        --header 'Authorization: Bearer ${process.env.GITHUB_TOKEN}' \
+        --header 'Authorization: Bearer 3aeb89b77e00fbea3cc0fde3cd40d0404c66f69f' \
         --header 'Content-Type: application/json' \
         --header 'Accept: application/vnd.github.everest-preview+json' \
         --data-raw '{
