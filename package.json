@@ -1,6 +1,6 @@
 {
   "name": "verascli",
-  "version": "2.134.0",
+  "version": "2.135.0",
   "description": "The platform for e-commerce apps",
   "bin": "bin/run",
   "main": "lib/api/index.js",
