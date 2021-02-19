@@ -11,12 +11,11 @@ jobs:
   npm-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - run: npm ci
       - uses: nelonoel/branch-name@v1.0.1
       # Use branch name for whatever purpose
