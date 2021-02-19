@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - uses: actions/checkout@v1
+      - run: npm ci
+      - uses: nelonoel/branch-name@v1.0.1
+      # Use branch name for whatever purpose
       - name: Deploy on NPM
         run: |
-          echo "${GITHUB_REF#refs/heads/}"
+          echo "${BRANCH_MANME}"
