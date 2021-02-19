@@ -17,6 +17,7 @@ jobs:
           echo "${GITHUB_REF#refs/heads/}"
           echo "${GITHUB_REF#refs/}"
           echo "${GITHUB_REF}"
+          echo "${GITHUB_REF##*/}"
           
           
 
